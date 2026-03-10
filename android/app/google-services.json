@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "304183469581",
+    "project_id": "cinespace-5a869",
+    "storage_bucket": "cinespace-5a869.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:304183469581:android:1ab81e58ae5048d3919744",
+        "android_client_info": {
+          "package_name": "com.sagaton.cinespace"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAg4SdAKVcZ0ra-0RflXWG9r270n3og-N0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
