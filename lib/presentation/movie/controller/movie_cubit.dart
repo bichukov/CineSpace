@@ -11,7 +11,10 @@ class MovieListCubit extends Cubit<MovieListState> {
 
   void watchMovies() {
     _subscription?.cancel();
-    _subscription = _dataSource.watchMovies().listen(
+
+    _subscription = _dataSource.watchMovies()
+        .map((models) => models.map((m) => m.toEntity()).toList())
+        .listen(
           (movies) => emit(MovieListState.loaded(movies)),
       onError: (e) => emit(MovieListState.error(e.toString())),
     );

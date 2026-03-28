@@ -1,6 +1,7 @@
+import 'package:cinespace/domain/entity/movie.dart';
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:cinespace/domain/models/models.dart';
+
 
 class MovieCard extends StatelessWidget {
   final Movie movie;
@@ -20,46 +21,32 @@ class MovieCard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Expanded(
+
             child: AspectRatio(
               aspectRatio: 2 / 3,
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(16),
-                child: CachedNetworkImage(
-                  imageUrl: movie.posterUrl,
-                  fit: BoxFit.cover,
-                  memCacheWidth: 400,
-                  placeholder: (context, url) => Container(color: Colors.white10),
-
-                  errorWidget: (context, url, error) => Container(
-                    color: Colors.white10,
-                    child: const Icon(Icons.broken_image, color: Colors.white24),
+                child: Hero(
+                  tag: movie.id,
+                  child: CachedNetworkImage(
+                    imageUrl: movie.posterUrl,
+                    fit: BoxFit.cover,
+                    placeholder: (context, url) => Container(color: Colors.white10),
+                    errorWidget: (context, url, error) => const Icon(Icons.broken_image),
                   ),
                 ),
               ),
             ),
           ),
           const SizedBox(height: 8),
-
           Text(
             movie.title,
-            maxLines: 1,
-            overflow: TextOverflow.ellipsis,
-            style: const TextStyle(
-              color: Colors.white,
-              fontWeight: FontWeight.bold,
-              fontSize: 14,
-            ),
+            style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
           ),
-          const SizedBox(height: 4),
-
+          // Жанры
           Text(
             movie.genres.join(', '),
-            maxLines: 1,
-            overflow: TextOverflow.ellipsis,
-            style: const TextStyle(
-              color: Colors.white38,
-              fontSize: 12,
-            ),
+            style: const TextStyle(color: Colors.white38, fontSize: 12),
           ),
         ],
       ),

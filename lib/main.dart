@@ -15,17 +15,16 @@ void main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
 
-  final movieDataSource = FirebaseMovieDataSourceImpl(FirebaseFirestore.instance);
-
   runApp(
+
     RepositoryProvider<MovieDataSource>(
-      create: (context) => movieDataSource,
-      child: MultiBlocProvider(
-        providers: [
-          BlocProvider(
-            create: (context) => MovieListCubit(movieDataSource)..watchMovies(),
-          ),
-        ],
+      create: (context) => FirebaseMovieDataSourceImpl(
+        FirebaseFirestore.instance,
+      ),
+      child: BlocProvider(
+        create: (context) => MovieListCubit(
+          context.read<MovieDataSource>(),
+        )..watchMovies(),
         child: const MyApp(),
       ),
     ),

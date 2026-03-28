@@ -53,6 +53,46 @@ class S {
   static S? maybeOf(BuildContext context) {
     return Localizations.of<S>(context, S);
   }
+
+  /// `Фильмы`
+  String get movie {
+    return Intl.message('Фильмы', name: 'movie', desc: '', args: []);
+  }
+
+  /// `Билеты`
+  String get tickets {
+    return Intl.message('Билеты', name: 'tickets', desc: '', args: []);
+  }
+
+  /// `Кинотеатры`
+  String get cinemas {
+    return Intl.message('Кинотеатры', name: 'cinemas', desc: '', args: []);
+  }
+
+  /// `Избранное`
+  String get favourite {
+    return Intl.message('Избранное', name: 'favourite', desc: '', args: []);
+  }
+
+  /// `Профиль`
+  String get profile {
+    return Intl.message('Профиль', name: 'profile', desc: '', args: []);
+  }
+
+  /// `Все`
+  String get all {
+    return Intl.message('Все', name: 'all', desc: '', args: []);
+  }
+
+  /// `Скоро`
+  String get soon {
+    return Intl.message('Скоро', name: 'soon', desc: '', args: []);
+  }
+
+  /// `Премьеры`
+  String get premieres {
+    return Intl.message('Премьеры', name: 'premieres', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

@@ -1,1 +1,10 @@
-{}
+{
+  "movie": "Movies",
+  "tickets": "Tickets",
+  "cinemas": "Cinemas",
+  "favourite": "Favourite",
+  "profile": "Profile",
+  "all": "all",
+  "soon": "Coming Soon",
+  "premieres": "Premieres"
+}

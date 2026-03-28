@@ -1,10 +1,14 @@
+import 'package:cinespace/app/navigation/routes/app_routes.dart';
+import 'package:cinespace/data/models/movie_category.dart';
+import 'package:cinespace/domain/entity/movie.dart';
 import 'package:flutter/material.dart';
-import 'package:cinespace/domain/models/models.dart';
+
+import 'package:go_router/go_router.dart';
 import 'movie_card.dart';
 
 class MovieCategoryGrid extends StatelessWidget {
   final List<Movie> movies;
-  final String category;
+  final MovieCategory category;
 
   const MovieCategoryGrid({
     super.key,
@@ -14,9 +18,12 @@ class MovieCategoryGrid extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final filtered = category == 'Все'
+    final filtered = category == MovieCategory.all
         ? movies
-        : movies.where((m) => m.category.contains(category)).toList();
+        : movies.where((m) {
+      return m.category.any((cat) =>
+          cat.toLowerCase().contains(category.name.toLowerCase()));
+    }).toList();
 
     if (filtered.isEmpty) {
       return const Center(
@@ -28,15 +35,25 @@ class MovieCategoryGrid extends StatelessWidget {
       padding: const EdgeInsets.all(16),
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
-        childAspectRatio: 0.7,
+        childAspectRatio: 0.55,
         crossAxisSpacing: 16,
         mainAxisSpacing: 16,
       ),
       itemCount: filtered.length,
-      itemBuilder: (context, index) => MovieCard(
-        movie: filtered[index],
-        onTap: () {},
-      ),
+      itemBuilder: (context, index) {
+        final movie = filtered[index];
+
+        return MovieCard(
+          movie: movie,
+          onTap: () {
+            context.pushNamed(
+              AppRoutes().details.routeName,
+              pathParameters: {'id': movie.id},
+              extra: movie,
+            );
+          },
+        );
+      },
     );
   }
 }
