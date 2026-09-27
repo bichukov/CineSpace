@@ -8,9 +8,7 @@ CineSpace is a modern cross-platform mobile application built with Flutter and D
 
 | Main Screen | Movie Details |
 | :---: | :---: |
-|<img width="375" height="814" alt="image" src="https://github.com/user-attachments/assets/4b6ae332-159e-40ad-85f7-ae2755c088c7" />
-  |<img width="372" height="814" alt="image" src="https://github.com/user-attachments/assets/0fc09171-6237-4c6a-8de7-6737d038dd3c" />
-|
+|<img width="375" height="814" alt="image" src="https://github.com/user-attachments/assets/4b6ae332-159e-40ad-85f7-ae2755c088c7" />  |<img width="372" height="814" alt="image" src="https://github.com/user-attachments/assets/0fc09171-6237-4c6a-8de7-6737d038dd3c" />|
 
 ---
 
